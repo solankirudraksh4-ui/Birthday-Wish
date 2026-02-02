@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Something Special 🎀</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="lockBox">
+  <h2>🎁 A Surprise Is Waiting</h2>
+
+  <p class="note">
+    This little surprise unlocks on<br>
+    <strong>6 February</strong> 💖
+  </p>
+
+  <div class="countdown">
+    <div class="timeBox">
+      <span id="days">00</span>
+      <small>Days</small>
+    </div>
+    <div class="timeBox">
+      <span id="hours">00</span>
+      <small>Hours</small>
+    </div>
+    <div class="timeBox">
+      <span id="minutes">00</span>
+      <small>Minutes</small>
+    </div>
+    <div class="timeBox pulse">
+      <span id="seconds">00</span>
+      <small>Seconds</small>
+    </div>
+  </div>
+
+  <p class="note">
+    Come back when the timer ends ✨
+  </p>
+</div>
+
+<script src="common.js"></script>
+
+<script>
+/* 🔒 SET HER BIRTHDAY DATE HERE */
+const unlockDate = new Date("Feb 6, 2026 00:00:00").getTime();
+
+setInterval(()=>{
+  const now = Date.now();
+  const diff = unlockDate - now;
+
+  if(diff <= 0){
+    document.querySelector(".countdown").innerHTML = "🎉 It’s Time! 🎉";
+    setTimeout(()=>{
+      window.location.href = "index.html";
+    }, 1500);
+    return;
+  }
+
+  document.getElementById("days").innerText =
+    Math.floor(diff / (1000*60*60*24));
+
+  document.getElementById("hours").innerText =
+    Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+
+  document.getElementById("minutes").innerText =
+    Math.floor((diff % (1000*60*60)) / (1000*60));
+
+  document.getElementById("seconds").innerText =
+    Math.floor((diff % (1000*60)) / 1000);
+},1000);
+</script>
+
+</body>
+</html>
