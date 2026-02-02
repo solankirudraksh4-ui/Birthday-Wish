@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Birthday Magic 🎂</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+
+<style>
+.container{
+  max-width:650px;
+  padding:20px;
+}
+
+.magicBox{
+  background:#fff;
+  border-radius:20px;
+  padding:26px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.magicBtn{
+  margin-top:20px;
+  padding:14px 30px;
+  background:#ff4d88;
+  color:white;
+  border:none;
+  border-radius:30px;
+  font-size:17px;
+}
+
+#wish{
+  margin-top:20px;
+  font-size:18px;
+  opacity:0;
+  transition:opacity 1s;
+}
+
+/* Magic hearts */
+.magic{
+  position:fixed;
+  font-size:22px;
+  animation:fall 3s linear forwards;
+}
+
+@keyframes fall{
+  from{top:-30px;opacity:1}
+  to{top:110%;opacity:0}
+}
+
+/* Stickers */
+.sticker{
+  position:absolute;
+  width:90px;
+  animation:bounce 2.5s infinite;
+}
+
+@keyframes bounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="magicBox">
+    <h2>🎉 It’s Your Birthday 🎉</h2>
+    <p style="margin-top:10px">
+      Tap the button and make this day magical ✨
+    </p>
+
+    <button class="magicBtn" onclick="makeMagic()">
+      Make Magic 💖
+    </button>
+
+    <div id="wish">
+      May your days be full of smiles,<br>
+      your heart full of happiness,<br>
+      and your life full of love 💗
+    </div>
+  </div>
+
+  <button class="btn" onclick="location.href='page5.html'">
+    Next 🎆
+  </button>
+</div>
+
+<!-- Stickers celebrating -->
+<img src="stickers/st2.png" class="sticker" style="top:15px;left:10px">
+<img src="stickers/st5.png" class="sticker" style="bottom:20px;right:15px">
+
+<div id="musicBtn" onclick="toggleMusic()">🎵</div>
+
+<script src="common.js"></script>
+
+<script>
+function makeMagic(){
+  document.getElementById("wish").style.opacity = 1;
+
+  for(let i=0;i<25;i++){
+    let h=document.createElement("div");
+    h.className="magic";
+    h.innerText = Math.random() > 0.5 ? "💗" : "✨";
+    h.style.left = Math.random()*100 + "%";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),3000);
+  }
+}
+</script>
+
+</body>
+</html>

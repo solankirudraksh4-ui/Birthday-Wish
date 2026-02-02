@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>A Little Letter 💌</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+
+<style>
+.container{
+  max-width:650px;
+  padding:20px;
+}
+
+.letterBox{
+  background:#fff;
+  border-radius:20px;
+  padding:24px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  text-align:left;
+  font-size:17px;
+  line-height:1.6;
+  min-height:280px;
+}
+
+/* Stickers */
+.sticker{
+  position:absolute;
+  width:90px;
+  animation:floatSoft 3s ease-in-out infinite;
+}
+
+@keyframes floatSoft{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2 style="margin-bottom:12px">Just for you 🤍</h2>
+
+  <div class="letterBox" id="letter"></div>
+
+  <button class="btn" onclick="location.href='page3.html'">
+    Next 💖
+  </button>
+</div>
+
+<!-- Stickers reacting to letter -->
+<img src="stickers/st9.png" class="sticker" style="top:15px;right:10px">
+<img src="stickers/st4.png" class="sticker" style="bottom:20px;left:10px">
+
+<div id="musicBtn" onclick="toggleMusic()">🎵</div>
+
+<script src="common.js"></script>
+
+<script>
+const text = `Dear Chutkii 🤍,
+
+Happy Birthday to the most special sister in my life 🎂✨
+
+You are not just my sister,
+you are my safe place,
+my best friend,
+and sometimes…
+my biggest headache too 😤💕
+
+But even on those days,
+I wouldn’t trade you for anything.
+
+You make life brighter,
+lighter,
+and so much better just by being you.
+
+No matter where life takes us,
+no matter how far,
+you will always have me —
+cheering for you,
+standing with you,
+and loving you endlessly 🤍
+
+I’m so proud of you.
+And I always will be.
+
+Forever yours,
+Rakhshhh 💖`;
+
+let i = 0;
+const speed = 35;
+
+function typeLetter(){
+  if(i < text.length){
+    document.getElementById("letter").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeLetter, speed);
+  }
+}
+
+typeLetter();
+</script>
+
+</body>
+</html>

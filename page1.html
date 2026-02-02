@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>This Day Is Special 🎀</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<style>
+.container{
+  max-width:600px;
+  padding:20px;
+}
+
+.line{
+  font-size:18px;
+  margin:14px 0;
+  opacity:0;
+  animation:fadeIn 1s forwards;
+}
+
+.line:nth-child(1){animation-delay:0.5s}
+.line:nth-child(2){animation-delay:1.5s}
+.line:nth-child(3){animation-delay:2.5s}
+.line:nth-child(4){animation-delay:3.5s}
+
+@keyframes fadeIn{
+  to{opacity:1}
+}
+
+/* Stickers */
+.sticker{
+  position:absolute;
+  width:90px;
+  animation:bounce 2.5s infinite;
+}
+
+@keyframes bounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="line">🎉 Today is not an ordinary day…</div>
+  <div class="line">🎀 Because someone very cute was born</div>
+  <div class="line">💗 Someone who makes life brighter</div>
+  <div class="line">✨ And today… it’s all about YOU</div>
+
+  <button class="btn" onclick="location.href='page2.html'">
+    Next 💌
+  </button>
+</div>
+
+<!-- Stickers (your images) -->
+<img src="stickers/st3.png" class="sticker" style="top:10px;left:10px">
+<img src="stickers/st6.png" class="sticker" style="bottom:20px;right:15px">
+
+<div id="musicBtn" onclick="toggleMusic()">🎵</div>
+
+<script src="common.js"></script>
+</body>
+</html>

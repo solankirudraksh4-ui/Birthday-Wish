@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday 🎆</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+
+<style>
+.container{
+  max-width:700px;
+  padding:20px;
+}
+
+/* Final Card */
+.finalCard{
+  background:#fff;
+  border-radius:22px;
+  padding:28px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.12);
+}
+
+.finalText{
+  font-size:19px;
+  margin:14px 0;
+}
+
+/* Fireworks */
+.fire{
+  position:fixed;
+  font-size:22px;
+  animation:explode 2.5s ease-out forwards;
+  pointer-events:none;
+}
+
+@keyframes explode{
+  0%{transform:scale(0);opacity:1}
+  70%{transform:scale(1.4);opacity:1}
+  100%{transform:scale(2);opacity:0}
+}
+
+/* Stickers */
+.sticker{
+  position:absolute;
+  width:100px;
+  animation:floatSoft 3s ease-in-out infinite;
+}
+
+@keyframes floatSoft{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+/* Replay */
+.replay{
+  margin-top:26px;
+  padding:14px 30px;
+  background:#ff4d88;
+  color:white;
+  border:none;
+  border-radius:30px;
+  font-size:17px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="finalCard">
+    <h1>🎉 Happy Birthday 🎉</h1>
+
+    <div class="finalText">
+      Today was all about you 💖
+    </div>
+
+    <div class="finalText">
+      And I hope this little surprise<br>
+      made you smile even a little 😊
+    </div>
+
+    <div class="finalText">
+      You are loved more than you know,<br>
+      today and always 🤍
+    </div>
+
+    <div class="finalText">
+      Come back whenever you miss me 💫
+    </div>
+
+    <button class="replay" onclick="replaySurprise()">
+      🔁 Replay the Surprise
+    </button>
+  </div>
+</div>
+
+<!-- Big hug sticker -->
+<img src="stickers/st4.png" class="sticker" style="bottom:15px;left:15px">
+
+<div id="musicBtn" onclick="toggleMusic()">🎵</div>
+
+<script src="common.js"></script>
+
+<script>
+// Fireworks loop
+setInterval(()=>{
+  let f=document.createElement("div");
+  f.className="fire";
+  f.innerText = Math.random() > 0.5 ? "🎆" : "✨";
+  f.style.left = Math.random()*100 + "%";
+  f.style.top = Math.random()*60 + "%";
+  document.body.appendChild(f);
+  setTimeout(()=>f.remove(),2500);
+},500);
+
+// Replay logic
+function replaySurprise(){
+  localStorage.setItem("music","off");
+  location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

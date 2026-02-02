@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Our Bond 💞</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+
+<style>
+.container{
+  max-width:650px;
+  padding:20px;
+}
+
+.card{
+  background:#fff;
+  border-radius:20px;
+  padding:22px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.msg{
+  font-size:18px;
+  margin:14px 0;
+  opacity:0;
+  animation:show 1s forwards;
+}
+
+.msg:nth-child(1){animation-delay:0.5s}
+.msg:nth-child(2){animation-delay:1.5s}
+.msg:nth-child(3){animation-delay:2.5s}
+.msg:nth-child(4){animation-delay:3.5s}
+
+@keyframes show{
+  to{opacity:1}
+}
+
+/* Stickers */
+.sticker{
+  position:absolute;
+  width:90px;
+  animation:floatSoft 3s ease-in-out infinite;
+}
+
+@keyframes floatSoft{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="card">
+    <div class="msg">💗 Some bonds don’t need distance to be measured</div>
+    <div class="msg">🎀 They don’t fade with time or space</div>
+    <div class="msg">✨ They stay… strong, warm, and constant</div>
+    <div class="msg">🧸 Just like ours</div>
+  </div>
+
+  <button class="btn" onclick="location.href='page4.html'">
+    Next 🎂
+  </button>
+</div>
+
+<!-- Stickers -->
+<img src="stickers/st1.png" class="sticker" style="top:15px;left:10px">
+<img src="stickers/st7.png" class="sticker" style="bottom:20px;right:15px">
+
+<div id="musicBtn" onclick="toggleMusic()">🎵</div>
+
+<script src="common.js"></script>
+</body>
+</html>
